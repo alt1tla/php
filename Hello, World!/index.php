@@ -18,7 +18,7 @@
 </head>
 <body>
     <header>
-        <img src=".img/logo.png" alt="moscow polytech logo" width='300px' height='300px'>
+        <img src="https://papik.pro/uploads/posts/2022-01/1643631772_58-papik-pro-p-politekh-logotip-63.jpg" alt="moscow polytech logo" width='160px' height='90px'>
         <span>Hello, World!</span>
     </header>
     <main>
