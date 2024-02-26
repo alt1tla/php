@@ -16,7 +16,7 @@
         if (strpos($left,'-') !== false){
             $operator = '-';
         } else if (strpos($left,'+') !== false){
-            $operator = '\u{002B}';
+            $operator = '+';
         } else if (strpos($left,'*') !== false){
             $operator = '*';
         } else if (strpos($left,'/') !== false){
