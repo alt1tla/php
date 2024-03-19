@@ -1,7 +1,6 @@
 const output = document.getElementById('output');
 const buttons = document.querySelectorAll('button');
 const sect = document.getElementById('section');
-console.log(buttons);
 buttons.forEach(button => {
     button.addEventListener('click', function () {
         if (button.textContent.includes('Очистить')) {
@@ -13,7 +12,6 @@ buttons.forEach(button => {
         }
     });
     });
-console.log(buttons[0]);
 output.addEventListener('keydown', function(event){
     if(event.code === 'Enter'){
         calculator();
