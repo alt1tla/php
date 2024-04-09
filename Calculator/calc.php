@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo 'None';
     }
     else {
-        echo 'Error d';
+        echo 'Error calc';
     }
 }
 
