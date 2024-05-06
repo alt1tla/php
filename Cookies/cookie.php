@@ -22,4 +22,4 @@
 	<input type="text" name="phone" value="<?php echo $email ?>">
 
 	<input type="submit">
-</form>
+</form>\
