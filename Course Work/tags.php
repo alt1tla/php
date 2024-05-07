@@ -3,7 +3,7 @@
     <form action="index.php" method="GET">
         <h4>Выберите области знаний</h4>
         <div class="container">
-            <select name="field_id" id="field_id" class="form-control fix">
+            <select name="field_id" id="field_id" class="form-control ">
                 <!-- добаляем области знаний в селектор -->
                 <?php
                 if (isset($_GET['field_id'])) {

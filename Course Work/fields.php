@@ -36,7 +36,7 @@
 
         <h3>Редактирование области знаний</h3>
         <div class="container">
-            <select name="field_id" id="field_id" class="form-control fix">
+            <select name="field_id" id="field_id" class="form-control ">
                 <?php
                 // записываем в селект все обл знаний
                     $sql = "SELECT `id`, `name` FROM `Field`";
