@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Frame</title>
+    <title><?php echo isset($pageTitle) ? $pageTitle : "Мой блог"; ?></title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,6 +30,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?=dirname($_SERVER['SCRIPT_NAME'])?>/hello/Veronika" >Hello</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?=dirname($_SERVER['SCRIPT_NAME'])?>/bye/Veronika" >Bye</a>
       </li>
     </ul>
   </div>

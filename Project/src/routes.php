@@ -2,5 +2,6 @@
 //прописываем на какой запрос кто реагирует
     return [
         '~^$~' => [src\Controllers\MainController::class, 'main'],
-        '~hello/(.+)~' => [src\Controllers\MainController::class, 'sayHello']
+        '~hello/(.+)~' => [src\Controllers\MainController::class, 'sayHello'],
+        '~bye/(.+)~' => [src\Controllers\MainController::class, 'sayBye']
     ];

@@ -16,6 +16,14 @@ class MainController{
     }
 
     public function sayHello(string $name){
+        global $pageTitle;
+        $pageTitle = "Страница приветствия";
         $this->view->renderHtml('main/hello', ['name'=>$name]);
+    }
+
+    public function sayBye(string $name){
+        global $pageTitle;
+        $pageTitle = "Страница прощания";
+        $this->view->renderHtml('main/bye', ['name'=>$name]);
     }
 }
