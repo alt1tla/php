@@ -4,6 +4,14 @@ namespace src\Models;
 use src\Services\Db;
 
 abstract class ActiveRecordEntity{
+
+    protected $id;
+    
+    public function getId()
+    {
+        return $this->id;
+    }
+    
     public function __set($key,$value){
         $property = $this->formatToCamelcase($key);
         $this->$property = $value;
@@ -19,7 +27,7 @@ abstract class ActiveRecordEntity{
         return $db->query($sql,[],static::class);
     }    
 
-    public static function getById(int $id){
+    public static function getById(int $id) : ?self{
         $db = Db::getInstance();
         $sql = 'SELECT * FROM `'.static::getTableName().'` WHERE `id`='.$id;
         $res = $db->query($sql,[],static::class);

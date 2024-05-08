@@ -6,16 +6,13 @@ use src\Models\ActiveRecordEntity;
 
     class Article extends ActiveRecordEntity{
         
-        protected $id;
+
         protected $titles;
         protected $text;
         protected $authorId;
         protected $createdAt;
 
-        public function getId()
-        {
-            return $this->id;
-        }
+        
         public function getTitle()
         {
             return $this->titles;
@@ -25,9 +22,9 @@ use src\Models\ActiveRecordEntity;
             return $this->text;
         }
 
-        public function getAuthorId()
+        public function getAuthorId() : User
         {
-            return $this->authorId;
+            return User::getById($this->authorId);
         }
 
         public function getCreatedAt() 
