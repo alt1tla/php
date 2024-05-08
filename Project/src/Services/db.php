@@ -5,22 +5,31 @@ namespace src\Services;
 class Db{
     private $pdo;
 
-    public function __construct(){
+    private static $instance;
+
+    private function __construct(){
         $dbOptions = require('settings.php');
         $this->pdo = new \PDO(
-            'mysql:host='.$dbOptions['host'].'; dbname=.'.$dbOptions['dbname'],
+            'mysql:host='.$dbOptions['host'].'; dbname='.$dbOptions['dbname'],
             $dbOptions['user'],
             $dbOptions['password']
         );
     }
 
-    public function query(string $sql, $params = []):?array{
+    public static function getInstance(){
+        if (self::$instance == null){
+            self::$instance = new self;
+        }
+        return self::$instance;
+    }
+
+    public function query(string $sql, $params = [], string $className='stdClass'){
         $sth = $this->pdo->prepare($sql);
         $result = $sth->execute($params);
 
         if ($result == false) {
             return null;
         }
-        return $sth->fetchAll();
+        return $sth->fetchAll(\PDO::FETCH_CLASS, $className);
     }
 }
