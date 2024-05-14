@@ -23,7 +23,7 @@
         <a class="nav-link" href="<?=dirname($_SERVER['SCRIPT_NAME'])?>/articles">Articles</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="<?=dirname($_SERVER['SCRIPT_NAME'])?>/article/create">Create</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Pricing</a>

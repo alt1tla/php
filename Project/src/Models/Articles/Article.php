@@ -36,6 +36,18 @@ use src\Models\ActiveRecordEntity;
             return 'articles';
         }
 
+        public function setAuthorId(int $authorId){
+            $this->authorId = $authorId;
+        }
+
+        public function setTitle(string $title){
+            $this->titles = $title;
+        }
+
+        public function setText(string $text){
+            $this->text = $text;
+        }
+
     }
 
     

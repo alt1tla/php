@@ -17,12 +17,6 @@ class ArticleController{
 
     public function show(int $id){
         $article = Article::getById($id);
-        $propertiesName= [];
-        $reflector = new \ReflectionObject($article);
-        $properties = $reflector->getProperties();  
-        foreach ( $properties as $property){
-            $propertiesName[] = $property->getName();
-        }      
         
         if ($article === null) {
             $this->view->renderHTML('errors/error',[],404);
@@ -31,4 +25,18 @@ class ArticleController{
 
         $this->view->renderHTML('articles/show',['article'=>$article]);
     }
+
+    public function create(){
+        $this->view->renderHTML('/articles/create');
+    }
+
+    public function store(){
+        $article = new Article;
+        $article -> setTitle($_POST['inputTitle']);
+        $article -> setText($_POST['inputText']);
+        $article -> setAuthorId($_POST['inputAuthorId']);
+        $article -> save();
+    }
 }
+
+?>
