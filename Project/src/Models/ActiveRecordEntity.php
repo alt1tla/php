@@ -78,7 +78,27 @@ abstract class ActiveRecordEntity{
     }
 
     private function update(){
+        $db = Db::getInstance();
+        $data = $this->getPropertyToDb();
+        $params = [];
+        $paramsAndValue = [];
+        foreach($data as $property=>$value){
+            $param = ':'.$property;
+            $params [] = '`'.$property.'`='.$param;
+            $paramsAndValue [$param] = $value;
+        }
 
+        $sql = 'UPDATE `'.static::getTableName().'` 
+        SET '.implode(',',$params).'  
+        WHERE `id`=:id';
+
+        $db->query($sql,$paramsAndValue, static::class);
+    }
+
+    public function delete(){
+        $db = Db::getInstance();
+        $sql = 'DELETE FROM`'.static::getTableName().'` WHERE `id`=:id';
+        $db->query($sql,[':id'=>$this->id],static::class);
     }
 
     abstract protected static function getTableName();

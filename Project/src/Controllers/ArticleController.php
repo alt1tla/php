@@ -36,7 +36,30 @@ class ArticleController{
         $article -> setText($_POST['inputText']);
         $article -> setAuthorId($_POST['inputAuthorId']);
         $article -> save();
+        header("Location:php/Project/www/articles");
     }
+
+    public function edit(int $id){
+        $article = Article::getById($id);
+        $this->view->renderHTML('/articles/edit',['article'=>$article]);
+    }
+
+    public function update(int $id){
+        $article = Article::getById($id);
+        $article -> setTitle($_POST['inputTitle']);
+        $article -> setText($_POST['inputText']);
+        $article -> setAuthorId($_POST['inputAuthorId']);
+        $article -> save();
+        header('Location:php/Project/www/article/'.$article->getId());
+    }
+
+    public function delete(int $id){
+        $article = Article::getById($id);
+        $article->delete();
+        header("Location:php/Project/www/articles");
+    }
+
+
 }
 
 ?>

@@ -5,6 +5,8 @@
         <h6 class="card-text"><?=$article->getAuthorId()->getNickName();?></h6>
         <p class="card-text"><?=$article->getText();?></p>
         <p class="card-text small"><?=$article->getCreatedAt();?></p>
+        <a href="<?=dirname($_SERVER['SCRIPT_NAME'])?>/article/edit/<?=$article->getId();?>" class="btn btn-primary">Edit article</a>
+        <a href="<?=dirname($_SERVER['SCRIPT_NAME'])?>/article/delete/<?=$article->getId();?>" class="btn btn-danger">Delete article</a>
     </div>
 </div>
 <?php require(__DIR__.'/../footer.php');?>
